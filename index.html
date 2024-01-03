@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NFL Spin Challenge!</title>
+
+    <style>
+        body {
+            background-color: blanchedalmond;
+        }
+
+        div.position {
+            font-size: 24pt;
+            font-weight: bold;
+            margin-bottom: 10px;
+            margin-right: 35%;
+            padding-left: 5%;
+            line-height: 100px;
+            display: flex;
+            border: solid black 3px;
+        }
+
+        div#left {
+            float: left;
+            width: 30%;
+            text-align: center;
+            padding-left: 18%;
+        }
+
+        div#right {
+            float: right;
+            width: 30%;
+            text-align: center;
+            padding-left: 10%;
+            margin-right: 8%;
+        }
+
+        img.team_icon {
+            width: 100px;
+        }
+
+        div.center {
+            width: 20%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        span.lock {
+            font-size: 12pt;
+        }
+
+        button#spin_all {
+            font-size: 24pt;
+            font-weight: bolder;
+            height: 50px;
+        }
+
+        div#spin_button {
+            text-align: center;
+            margin-top: 5%;
+        }
+
+        div#title {
+            text-align: center;
+            margin-top: -3%;
+        }
+
+        div.notes_left {
+            width: 50px;
+            background-color: red;
+            margin-left: 67%;
+            margin-top: -70px;
+            margin-bottom: 70px;
+        }
+
+        h5#subtitle {
+            margin-top: -20px;
+        }
+
+       
+    </style>
+
+    <script>
+        var icons = ["ari", "atl", "bal", "buf", "car", "chi", "cin", "cle", "dal", "den", "det", "gb", "hou", "ind", "jax", "kc", "lac", "lar", "lv", "mia", "min", "ne", "no", "nyg", "nyj", "phi", "pit", "sea", "sf", "tb", "ten", "wsh"];
+
+        function initialize_shuffle(pos_icon) {
+            var x_icon = document.getElementById(pos_icon);
+            var checkbox = document.getElementById(pos_icon + "_checkbox");
+
+            function shuffle() {
+                var index = Math.floor(Math.random() * icons.length);
+                var x = icons[index];
+                x_icon.src = x + ".webp";
+                x_icon.title = x
+                // console.log(x_icon.src);
+                console.log(x_icon.title);
+            }
+
+            if (!checkbox.checked) {
+                for (var i = 0; i < 20; i++) {
+                    setTimeout(shuffle, i * 100);
+                }
+            }
+        }
+
+        function spin_all() {
+            var positions = ["qb", "wr1", "wr2", "wr3", "rb", "hc", "te", "ol", "def", "dp"];
+            positions.forEach(function (position) {
+                initialize_shuffle(position + "_icon");
+            });
+        }
+
+        function route_depth_chart(x) {
+            window.open("https://www.espn.com/nfl/team/depth/_/name/" + x);
+        }
+
+
+    </script>
+</head>
+
+<body>
+    <a id="instructions" href="instructions.html">how to play</a>
+    <div id="title">
+        <h1>
+            NFL 17-0 Spin Challenge
+        </h1>
+        <h5 id="subtitle">click on a team's logo to see their depth chart</h5>
+    </div>
+    <div id="left">
+        <div class="position" id="qb">
+            <span class="lock">Lock Pick</span>
+            <input type="checkbox" id="qb_icon_checkbox">
+            <img id="qb_icon" class="team_icon" onclick="route_depth_chart(this.title)" src="placeholder.png"
+                alt="placeholder" title="placeholder image"> QB
+        </div>
+        <div class="notes_left">
+            <input class="notes" type="text" placeholder="notes...">
+        </div>
+
+        <div class="position" id="wr1">
+            <span class="lock">Lock Pick</span>
+            <input type="checkbox" id="wr1_icon_checkbox">
+            <img id="wr1_icon" class="team_icon" onclick="route_depth_chart(this.title)" src="placeholder.png"
+                alt="placeholder" title="placeholder image"> WR1
+        </div>
+        <div class="notes_left">
+            <input class="notes" type="text" placeholder="notes...">
+        </div>
+
+        <div class="position" id="wr2">
+            <span class="lock">Lock Pick</span>
+            <input type="checkbox" id="wr2_icon_checkbox">
+            <img id="wr2_icon" class="team_icon" onclick="route_depth_chart(this.title)" src="placeholder.png"
+                alt="placeholder" title="placeholder image"> WR2
+        </div>
+        <div class="notes_left">
+            <input class="notes" type="text" placeholder="notes...">
+        </div>
+
+        <div class="position" id="wr3">
+            <span class="lock">Lock Pick</span>
+            <input type="checkbox" id="wr3_icon_checkbox">
+            <img id="wr3_icon" class="team_icon" onclick="route_depth_chart(this.title)" src="placeholder.png"
+                alt="placeholder" title="placeholder image"> WR3
+        </div>
+        <div class="notes_left">
+            <input class="notes" type="text" placeholder="notes...">
+        </div>
+
+        <div class="position" id="rb">
+            <span class="lock">Lock Pick</span>
+            <input type="checkbox" id="rb_icon_checkbox">
+            <img id="rb_icon" class="team_icon" onclick="route_depth_chart(this.title)" src="placeholder.png"
+                alt="placeholder" title="placeholder image"> RB;
+        </div>
+        <div class="notes_left">
+            <input class="notes" type="text" placeholder="notes...">
+        </div>
+    </div>
+
+    <div id="right">
+        <div class="position" id="hc">
+            <span class="lock">Lock Pick</span>
+            <input type="checkbox" id="hc_icon_checkbox">
+            <img id="hc_icon" class="team_icon" onclick="route_depth_chart(this.title)" src="placeholder.png"
+                alt="placeholder" title="placeholder image">
+            HC
+        </div>
+        <div class="notes_left">
+            <input class="notes" type="text" placeholder="notes...">
+        </div>
+
+        <div class="position" id="te">
+            <span class="lock">Lock Pick</span>
+            <input type="checkbox" id="te_icon_checkbox">
+            <img id="te_icon" class="team_icon" onclick="route_depth_chart(this.title)" src="placeholder.png"
+                alt="placeholder" title="placeholder image">
+            TE
+        </div>
+        <div class="notes_left">
+            <input class="notes" type="text" placeholder="notes...">
+        </div>
+
+        <div class="position" id="ol">
+            <span class="lock">Lock Pick</span>
+            <input type="checkbox" id="ol_icon_checkbox">
+            <img id="ol_icon" class="team_icon" onclick="route_depth_chart(this.title)" src="placeholder.png"
+                alt="placeholder" title="placeholder image">
+            OL
+        </div>
+        <div class="notes_left">
+            <input class="notes" type="text" placeholder="notes...">
+        </div>
+
+        <div class="position" id="def">
+            <span class="lock">Lock Pick</span>
+            <input type="checkbox" id="def_icon_checkbox">
+            <img id="def_icon" class="team_icon" onclick="route_depth_chart(this.title)" src="placeholder.png"
+                alt="placeholder" title="placeholder image">
+            DEF
+        </div>
+        <div class="notes_left">
+            <input class="notes" type="text" placeholder="notes...">
+        </div>
+
+        <div class="position" id="dp">
+            <span class="lock">Lock Pick</span>
+            <input type="checkbox" id="dp_icon_checkbox">
+            <img id="dp_icon" class="team_icon" onclick="route_depth_chart(this.title)" src="placeholder.png"
+                alt="placeholder" title="placeholder image">
+            DP
+        </div>
+        <div class="notes_left">
+            <input class="notes" type="text" placeholder="notes...">
+        </div>
+    </div>
+    <div id="spin_button">
+        <div class="center">
+            <button id="spin_all" onclick="spin_all()">Spin Positions</button>
+        </div>
+    </div>
+</body>
+
+
+</html>
+`
