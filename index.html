@@ -7,10 +7,6 @@
     <title>NFL Spin Challenge!</title>
 
     <style>
-        body {
-            background-color: blanchedalmond;
-        }
-
         div.position {
             font-size: 24pt;
             font-weight: bold;
@@ -22,11 +18,15 @@
             border: solid black 3px;
         }
 
+        body {
+            background-color: blanchedalmond;
+        }
+
         div#left {
             float: left;
             width: 30%;
             text-align: center;
-            padding-left: 18%;
+            /* padding-left: 18%; */
         }
 
         div#right {
@@ -48,23 +48,26 @@
         }
 
         span.lock {
-            font-size: 12pt;
+            font-size: 0.5em;
         }
 
         button#spin_all {
-            font-size: 24pt;
+            font-size: 1em;
             font-weight: bolder;
             height: 50px;
         }
 
         div#spin_button {
             text-align: center;
-            margin-top: 5%;
+            margin-top: 45%;
+
+            /* background-color: violet; */
         }
 
         div#title {
             text-align: center;
             margin-top: -3%;
+            margin-left: -8%;
         }
 
         div.notes_left {
@@ -79,7 +82,19 @@
             margin-top: -20px;
         }
 
-       
+        @media only screen and (max-width: 600px) {
+            body {
+                background-color: aliceblue;
+            }
+
+            div.position {
+                border: 0px black solid;
+            }
+
+            div.notes_left {
+                margin: auto;
+            }
+        }
     </style>
 
     <script>
@@ -130,7 +145,7 @@
     </div>
     <div id="left">
         <div class="position" id="qb">
-            <span class="lock">Lock Pick</span>
+            <span class="lock">lock</span>
             <input type="checkbox" id="qb_icon_checkbox">
             <img id="qb_icon" class="team_icon" onclick="route_depth_chart(this.title)" src="placeholder.png"
                 alt="placeholder" title="placeholder image"> QB
@@ -140,7 +155,7 @@
         </div>
 
         <div class="position" id="wr1">
-            <span class="lock">Lock Pick</span>
+            <span class="lock">lock</span>
             <input type="checkbox" id="wr1_icon_checkbox">
             <img id="wr1_icon" class="team_icon" onclick="route_depth_chart(this.title)" src="placeholder.png"
                 alt="placeholder" title="placeholder image"> WR1
@@ -150,7 +165,7 @@
         </div>
 
         <div class="position" id="wr2">
-            <span class="lock">Lock Pick</span>
+            <span class="lock">lock</span>
             <input type="checkbox" id="wr2_icon_checkbox">
             <img id="wr2_icon" class="team_icon" onclick="route_depth_chart(this.title)" src="placeholder.png"
                 alt="placeholder" title="placeholder image"> WR2
@@ -160,7 +175,7 @@
         </div>
 
         <div class="position" id="wr3">
-            <span class="lock">Lock Pick</span>
+            <span class="lock">lock</span>
             <input type="checkbox" id="wr3_icon_checkbox">
             <img id="wr3_icon" class="team_icon" onclick="route_depth_chart(this.title)" src="placeholder.png"
                 alt="placeholder" title="placeholder image"> WR3
@@ -170,7 +185,7 @@
         </div>
 
         <div class="position" id="rb">
-            <span class="lock">Lock Pick</span>
+            <span class="lock">lock</span>
             <input type="checkbox" id="rb_icon_checkbox">
             <img id="rb_icon" class="team_icon" onclick="route_depth_chart(this.title)" src="placeholder.png"
                 alt="placeholder" title="placeholder image"> RB;
@@ -182,7 +197,7 @@
 
     <div id="right">
         <div class="position" id="hc">
-            <span class="lock">Lock Pick</span>
+            <span class="lock">lock</span>
             <input type="checkbox" id="hc_icon_checkbox">
             <img id="hc_icon" class="team_icon" onclick="route_depth_chart(this.title)" src="placeholder.png"
                 alt="placeholder" title="placeholder image">
@@ -193,7 +208,7 @@
         </div>
 
         <div class="position" id="te">
-            <span class="lock">Lock Pick</span>
+            <span class="lock">lock</span>
             <input type="checkbox" id="te_icon_checkbox">
             <img id="te_icon" class="team_icon" onclick="route_depth_chart(this.title)" src="placeholder.png"
                 alt="placeholder" title="placeholder image">
@@ -204,7 +219,7 @@
         </div>
 
         <div class="position" id="ol">
-            <span class="lock">Lock Pick</span>
+            <span class="lock">lock</span>
             <input type="checkbox" id="ol_icon_checkbox">
             <img id="ol_icon" class="team_icon" onclick="route_depth_chart(this.title)" src="placeholder.png"
                 alt="placeholder" title="placeholder image">
@@ -215,7 +230,7 @@
         </div>
 
         <div class="position" id="def">
-            <span class="lock">Lock Pick</span>
+            <span class="lock">lock</span>
             <input type="checkbox" id="def_icon_checkbox">
             <img id="def_icon" class="team_icon" onclick="route_depth_chart(this.title)" src="placeholder.png"
                 alt="placeholder" title="placeholder image">
@@ -226,7 +241,7 @@
         </div>
 
         <div class="position" id="dp">
-            <span class="lock">Lock Pick</span>
+            <span class="lock">lock</span>
             <input type="checkbox" id="dp_icon_checkbox">
             <img id="dp_icon" class="team_icon" onclick="route_depth_chart(this.title)" src="placeholder.png"
                 alt="placeholder" title="placeholder image">
