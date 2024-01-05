@@ -92,6 +92,11 @@
 
             div.notes_left {
                 margin: auto;
+
+            }
+
+            .lock {
+                display: none;
             }
         }
     </style>
@@ -123,7 +128,7 @@
         function spin_all() {
             checked_count = 0;
             var positions = ["qb", "wr1", "wr2", "wr3", "rb", "hc", "te", "ol", "def", "dp"];
-            
+
             positions.forEach(function (position) {
                 var checkbox = document.getElementById(position + "_icon_checkbox");
                 if (checkbox.checked) {
