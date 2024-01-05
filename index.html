@@ -72,7 +72,6 @@
 
         div.notes_left {
             width: 50px;
-            background-color: red;
             margin-left: 67%;
             margin-top: -70px;
             margin-bottom: 70px;
@@ -99,7 +98,8 @@
 
     <script>
         var icons = ["ari", "atl", "bal", "buf", "car", "chi", "cin", "cle", "dal", "den", "det", "gb", "hou", "ind", "jax", "kc", "lac", "lar", "lv", "mia", "min", "ne", "no", "nyg", "nyj", "phi", "pit", "sea", "sf", "tb", "ten", "wsh"];
-
+        var spin_count = 0;
+        var checked_count = 0;
         function initialize_shuffle(pos_icon) {
             var x_icon = document.getElementById(pos_icon);
             var checkbox = document.getElementById(pos_icon + "_checkbox");
@@ -110,7 +110,7 @@
                 x_icon.src = x + ".webp";
                 x_icon.title = x
                 // console.log(x_icon.src);
-                console.log(x_icon.title);
+                // console.log(x_icon.title);
             }
 
             if (!checkbox.checked) {
@@ -121,10 +121,29 @@
         }
 
         function spin_all() {
+            checked_count = 0;
             var positions = ["qb", "wr1", "wr2", "wr3", "rb", "hc", "te", "ol", "def", "dp"];
+            
             positions.forEach(function (position) {
-                initialize_shuffle(position + "_icon");
+                var checkbox = document.getElementById(position + "_icon_checkbox");
+                if (checkbox.checked) {
+                    checked_count++;
+                }
             });
+
+            if (checked_count == spin_count) {
+                positions.forEach(function (position) {
+                    initialize_shuffle(position + "_icon");
+                });
+            }
+            else {
+                alert('Please lock exactly one position per spin.')
+                return
+            }
+
+            spin_count += 1;
+            document.getElementById('spin_ct').innerHTML = "Spin Count: " + spin_count;
+
         }
 
         function route_depth_chart(x) {
@@ -142,6 +161,7 @@
             NFL 17-0 Spin Challenge
         </h1>
         <h5 id="subtitle">click on a team's logo to see their depth chart</h5>
+        <h5 id="spin_ct">Spin Count: 0</h5>
     </div>
     <div id="left">
         <div class="position" id="qb">
@@ -188,7 +208,7 @@
             <span class="lock">lock</span>
             <input type="checkbox" id="rb_icon_checkbox">
             <img id="rb_icon" class="team_icon" onclick="route_depth_chart(this.title)" src="placeholder.png"
-                alt="placeholder" title="placeholder image"> RB;
+                alt="placeholder" title="placeholder image"> RB
         </div>
         <div class="notes_left">
             <input class="notes" type="text" placeholder="notes...">
