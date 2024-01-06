@@ -96,8 +96,7 @@
                 display: none;
             }
 
-            div#spin_button
-            {
+            div#spin_button {
                 margin-bottom: 10%;
             }
 
@@ -151,15 +150,26 @@
 
             spin_count += 1;
             document.getElementById('spin_ct').innerHTML = "Spin Count: " + spin_count;
-            
+
         }
-        
-        function route_depth_chart(x) {
-            window.open("https://www.espn.com/nfl/team/depth/_/name/" + x);
+
+        function route_roster(x) {
+            if (x == "placeholder image") {
+                window.open("https://www.nba.com/teams");
+            }
+            else if (x == "mavericks")
+            {
+                window.open("https://www.mavs.com/team/roster/") // For some reason the Mavs have their own site and no nba.com page
+            }
+            else {
+                var route = "https://www.nba.com/" + x + "/roster"
+                window.open(route)
+                console.log(route)
+            }
         }
-        
-        
-        </script>
+
+
+    </script>
 </head>
 
 <body>
@@ -186,7 +196,7 @@
         <div class="notes_left">
             <input class="notes" type="text" placeholder="notes...">
         </div>
-        
+
         <div class="position" id="pf">
             <span class="lock">lock</span>
             <input type="checkbox" id="pf_icon_checkbox">
