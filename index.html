@@ -51,7 +51,7 @@
             font-size: 0.5em;
         }
 
-        button#spin_all {
+        .action_button {
             font-size: 1em;
             font-weight: bolder;
             height: 50px;
@@ -155,6 +155,12 @@
             spin_count += 1;
             document.getElementById('spin_ct').innerHTML = "Spin Count: " + spin_count;
 
+            if (spin_count == 10)
+            {
+                document.getElementById('spin_all').hidden = true
+                document.getElementById('play_again').hidden = false
+            }
+
         }
         
         function route_depth_chart(x) {
@@ -174,7 +180,8 @@
         <h5 id="subtitle">click on a team's logo to see their depth chart</h5>
         <h5 id="spin_ct">Spin Count: 0</h5>
         <div id="spin_button">
-                <button id="spin_all" onclick="spin_all()">Spin Positions</button>
+                <button class="action_button" id="spin_all" onclick="spin_all()">Spin Positions</button>
+                <button class="action_button" hidden id="play_again" onclick="window.location.reload()">Play Again</button>
         </div>
     </div>
     <div id="left">
