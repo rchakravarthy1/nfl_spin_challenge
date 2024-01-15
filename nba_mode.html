@@ -104,7 +104,8 @@
     </style>
 
     <script>
-        var icons = ['blazers', 'bucks', 'bulls', 'cavaliers', 'celtics', 'clippers', 'grizzlies', 'hawks', 'heat', 'hornets', 'jazz', 'kings', 'knicks', 'lakers', 'mavericks', 'nets', 'nuggets', 'pacers', 'pelicans', 'pistons', 'raptors', 'rockets', 'spurs', 'timberwolves', 'warriors', 'wizards'];
+        // var icons = ['blazers', 'bucks', 'bulls', 'cavaliers', 'celtics', 'clippers', 'grizzlies', 'hawks', 'heat', 'hornets', 'jazz', 'kings', 'knicks', 'lakers', 'mavericks', 'nets', 'nuggets', 'pacers', 'pelicans', 'pistons', 'raptors', 'rockets', 'spurs', 'timberwolves', 'warriors', 'wizards'];
+        var icons = ['por', 'mil', 'chi', 'cle', 'bos', 'lac', 'mem', 'atl', 'mia', 'cha', 'uth', 'sac', 'nyk', 'lal', 'dal', 'bkn', 'den', 'ind', 'no', 'det', 'tor', 'hou', 'sas', 'min', 'gsw', 'was'];
         var spin_count = 0;
         var checked_count = 0;
         function initialize_shuffle(pos_icon) {
@@ -155,16 +156,11 @@
 
         function route_roster(x) {
             if (x == "placeholder image") {
-                window.open("https://www.nba.com/teams");
-            }
-            else if (x == "mavericks")
-            {
-                window.open("https://www.mavs.com/team/roster/") // For some reason the Mavs have their own site and no nba.com page
+                window.open("https://www.espn.com/nba/teams");
             }
             else {
-                var route = "https://www.nba.com/" + x + "/roster"
+                var route = "https://www.espn.com/nba/team/depth/_/name/" + x
                 window.open(route)
-                console.log(route)
             }
         }
 
