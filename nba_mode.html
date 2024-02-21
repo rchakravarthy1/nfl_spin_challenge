@@ -130,7 +130,7 @@
 
         function spin_all() {
             checked_count = 0;
-            var positions = ["c", "pf", "sf", "pg", "sg"];
+            var positions = ["c", "pf", "sf", "pg", "sg", "b1", "b2"];
 
             positions.forEach(function (position) {
                 var checkbox = document.getElementById(position + "_icon_checkbox");
@@ -231,7 +231,7 @@
             <input class="notes" type="text" placeholder="notes...">
         </div>
 
-        <!-- <div class="position" id="b1">
+        <div class="position" id="b1">
             <span class="lock">lock</span>
             <input type="checkbox" id="b1_icon_checkbox">
             <img id="b1_icon" class="team_icon" onclick="route_roster(this.title)" src="nba_icons/placeholder.gif"
@@ -249,7 +249,7 @@
         <div class="notes_left">
             <input class="notes" type="text" placeholder="notes...">
         </div>
-    </div> -->
+    </div>
 
 </body>
 
